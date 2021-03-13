@@ -29,7 +29,38 @@ class WeatherModel {
         for city in cities {
             if cityName == city.cityName {
                 self.city = city
+                print("city set")
             }
+        }
+    }
+    
+    func getWeatherString(of state: Int) -> String? {
+        switch state {
+        case 10:
+            return "맑음"
+        case 11:
+            return "구름"
+        case 12:
+            return "비"
+        case 13:
+            return "눈"
+        default:
+            return "맑음"
+        }
+    }
+    
+    func getImage(of state: Int) -> UIImage? {
+        switch state {
+        case 10:
+            return UIImage(named: "sunny")
+        case 11:
+            return UIImage(named: "cloudy")
+        case 12:
+            return UIImage(named: "rainy")
+        case 13:
+            return UIImage(named: "snowy")
+        default:
+            return UIImage(named: "sunny")
         }
     }
     

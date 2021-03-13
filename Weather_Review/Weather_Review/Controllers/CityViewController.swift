@@ -20,6 +20,7 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
         tableView.dataSource = self
         weatherManager.parseCityJSON()
         tableView.reloadData()
@@ -29,8 +30,6 @@ class CityViewController: UIViewController {
     
     
     // MARK: - IBActions
-
-
 }
 
 // MARK: - UITableViewDataSource, Delegate
@@ -45,22 +44,7 @@ extension CityViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let city = weatherModel.cities?[indexPath.row] else { return cell }
         
-        var statusImage: UIImage? {
-            switch city.state {
-            case 10:
-                return UIImage(named: "sunny")
-            case 11:
-                return UIImage(named: "cloudy")
-            case 12:
-                return UIImage(named: "rainy")
-            case 13:
-                return UIImage(named: "snowy")
-            default:
-                return UIImage(named: "sunny")
-            }
-        }
-        
-        cell.stateImageView?.image = statusImage
+        cell.stateImageView?.image = weatherModel.getImage(of: city.state)
         cell.cityNameLabel?.text = city.cityName
         cell.degreeLabel?.text = city.degree
         cell.probabilityLabel?.text = city.probabilityString
@@ -69,7 +53,8 @@ extension CityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let city = tableView.cellForRow(at: indexPath)?.textLabel?.text else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as! CityCell? else { return }
+        guard let city = cell.cityNameLabel.text else { return }
         weatherModel.setCity(of: city)
     }
     
