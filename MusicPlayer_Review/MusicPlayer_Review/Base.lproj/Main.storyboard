@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicPlayer_Review" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bap-BK-YvE">
+                                <rect key="frame" x="120" y="125.5" width="174" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bap-BK-YvE" secondAttribute="height" multiplier="50:51" id="gzw-zb-WbD"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1455646574046579" green="0.09568563774901219" blue="0.44347743795375627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="play.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
+                                <state key="selected" backgroundImage="pause.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FM8-xx-0NI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLp-z3-Z1P">
+                                <rect key="frame" x="171.5" y="317.5" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Em2-Ae-HCV">
+                                <rect key="frame" x="22" y="362.5" width="370" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="K6X-i9-7gh"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bap-BK-YvE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="1oZ-4A-1tO"/>
+                            <constraint firstItem="Em2-Ae-HCV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="4Sc-DQ-qMN"/>
+                            <constraint firstItem="Em2-Ae-HCV" firstAttribute="top" secondItem="KLp-z3-Z1P" secondAttribute="bottom" constant="24" id="B7L-Zr-Yzb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Em2-Ae-HCV" secondAttribute="trailing" constant="24" id="Bef-mo-RuM"/>
+                            <constraint firstItem="KLp-z3-Z1P" firstAttribute="top" secondItem="Bap-BK-YvE" secondAttribute="bottom" constant="16" id="IEC-L0-Ahg"/>
+                            <constraint firstItem="KLp-z3-Z1P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jxo-0F-840"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bap-BK-YvE" secondAttribute="trailing" constant="120" id="LIc-Nj-NwD"/>
+                            <constraint firstItem="Em2-Ae-HCV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t4f-sY-bhV"/>
+                            <constraint firstItem="Bap-BK-YvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="zwo-j2-rEL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="Bap-BK-YvE" id="0Tb-b6-U7q"/>
+                        <outlet property="progressSlider" destination="Em2-Ae-HCV" id="RHe-dl-too"/>
+                        <outlet property="timeLabel" destination="KLp-z3-Z1P" id="YyU-PS-lTw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
