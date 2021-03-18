@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.datePicker.addTarget(self, action: #selector(self.didDatePickerChanged(_:)), for: UIControl.Event.valueChanged)
+
     }
 
 

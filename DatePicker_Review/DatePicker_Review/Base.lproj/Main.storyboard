@@ -24,6 +24,9 @@
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="EwE-sj-mGA">
                                 <rect key="frame" x="8" y="60" width="398" height="216"/>
+                                <connections>
+                                    <action selector="didDatePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="TLX-rd-Dan"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
